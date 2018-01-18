@@ -1,0 +1,11 @@
+[Unit]
+Description=Notify Slack of system state change
+Before=shutdown.target reboot.target halt.target
+
+[Service]
+ExecStart=/etc/init.d/slack_notify stop
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
+Alias=slack-notify-down.service
