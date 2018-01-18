@@ -1,0 +1,11 @@
+[Unit]
+Description=Notify Slack of system state change
+After=network.target
+
+[Service]
+ExecStart=/etc/init.d/slack_notify start
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
+Alias=slack-notify-up.service
